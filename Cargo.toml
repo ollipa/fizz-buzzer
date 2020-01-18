@@ -1,0 +1,16 @@
+[package]
+name = "fizz-buzzer"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "fizz_buzzer"
+crate-type = ["cdylib"]
+
+[dependencies]
+sha2 = "0.8.1"
+hex = "0.4.0"
+
+[dependencies.pyo3]
+version = "0.9.0-alpha.1"
+features = ["extension-module"]
