@@ -1,7 +1,5 @@
 use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
-
-extern crate hex;
 use sha2::{Digest, Sha256};
 
 #[pymodule]
@@ -30,8 +28,8 @@ fn fizz_buzz(n: i32) -> PyResult<String> {
 
 fn hash(data: &str) -> String {
     let mut hasher = Sha256::new();
-    hasher.input(data.as_bytes());
-    hex::encode(hasher.result())
+    hasher.update(data.as_bytes());
+    hex::encode(hasher.finalize())
 }
 
 #[cfg(test)]
